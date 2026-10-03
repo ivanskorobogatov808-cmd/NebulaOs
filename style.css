@@ -139,3 +139,97 @@
     inset: 0;
     background: url('https://img.magnific.com/premium-photo/cute-anime-fox-girl-wallpaper_776894-108430.jpg?semt=ais_hybrid&w=740&q=80') center / cover no-repeat;
 }
+
+
+
+
+
+
+#win {
+    position: fixed;
+    top: 100px;
+    left: 120px;
+    width: 500px;
+    height: 320px;
+    background: #141a2e;
+    color: #e8ecff;
+    border: 1px solid #2a3354;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    z-index: 400;
+    box-sizing: border-box;    /* ← добавь */
+}
+
+#win-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: #111;
+    color: #eee;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: move;
+    user-select: none;
+}
+
+#win-close {
+    background: none;
+    border: none;
+    color: #eee;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+#win-close:hover {
+    background: rgba(255, 80, 80, 0.2);
+    color: #ff6b6b;
+}
+
+#win-body {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 40px);   /* шапка ~40px с учётом padding и border */
+    padding: 10px;
+    gap: 8px;
+    background: #000;
+    font-family: monospace;
+    font-size: 14px;
+    color: #ffd400;
+    overflow: hidden;
+    box-sizing: border-box;      /* ← добавь */
+}
+
+#term-out {
+    flex: 1;                     /* ← занимает всё место, поле уходит вниз */
+    overflow-y: auto;
+    white-space: pre-wrap;
+    color: #ffd400;              /* ← вывод жёлтый */
+}
+
+#term-in {
+    flex-shrink: 0;
+    width: 100%;
+    background: #0d0d0d;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: #ffd400;
+    font-family: monospace;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;      /* ← добавь */
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+#term-in::placeholder {
+    color: #8a7a30;              /* приглушённый жёлтый для placeholder */
+}
+
+#term-in:focus {
+    border-color: #ffd400;
+    box-shadow: 0 0 0 2px rgba(255, 212, 0, 0.15);
+}
