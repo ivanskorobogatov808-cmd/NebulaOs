@@ -19,23 +19,44 @@
     </h2>
 </div>
 <div id="os-beta0-1" style="display: none">
-     <aside id="dock">
-    <button class="dock-item" id="open-btn">&gt;_</button>
-    <button class="dock-item">📁</button>
-    <button class="dock-item">🌐</button>
-    <button class="dock-item">⚙</button>
-    <button class="dock-item" id="power-btn" onclick="closeAbout1()">⏻</button>
-</aside>
+
+    <aside id="dock">
+        <button class="dock-item" id="open-btn">&gt;_</button>
+        <button class="dock-item">📁</button>
+        <button class="dock-item">🌐</button>
+        <button class="dock-item">⚙</button>
+        <button class="dock-item" id="power-btn" onclick="closeAbout1()">⏻</button>
+    </aside>
+
+    <div class="icon" id="news-icon">
+        <div class="icon-img">📰</div>
+        <div class="icon-label">Новости</div>
+    </div>
     <div id="win" style="display: none">
-    <div id="win-bar">
-        Терминал
-        <button id="win-close">✕</button>
+        <div id="win-bar">
+            Терминал
+            <button id="win-close">✕</button>
+        </div>
+        <div id="win-body">
+            <div id="term-out"></div>
+            <input id="term-in" type="text" autocomplete="off" placeholder="Введите команду...">
+        </div>
     </div>
-    <div id="win-body">
-        <div id="term-out"></div>
-    <input id="term-in" type="text" autocomplete="off" placeholder="Введите команду...">
+
+    <div id="news-win" style="display: none; position: fixed; top: 100px; left: 200px;
+         width: 400px; height: 300px; background: #000; color: #fff;
+         border-radius: 10px; z-index: 999;">
+        <div class="news-bar" style="display: flex; justify-content: space-between;
+             padding: 10px; background: #111; border-radius: 10px 10px 0 0;">
+            Новости
+            <button id="news-close" style="background: none; border: none;
+                    color: #fff; cursor: pointer;">✕</button>
+        </div>
+        <div style="padding: 16px;">
+            Сдесь будут новости NebulaOS<br>
+            • 04.10.2026 ❘ Сделана оптимизация
+        </div>
     </div>
-</div>
 </div>
     <script src="commands.js"></script>
     <script src="script.js"></script>

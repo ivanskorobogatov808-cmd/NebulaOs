@@ -233,3 +233,40 @@
     border-color: #ffd400;
     box-shadow: 0 0 0 2px rgba(255, 212, 0, 0.15);
 }
+
+
+
+
+
+
+
+
+
+#news-icon {
+    position: fixed;
+    top: 20px;
+    left: 80px;
+    width: 90px;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    z-index: 100;
+    border-radius: 8px;
+    font-size: 13px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+
+#news-icon:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+#news-icon div:first-child {
+    font-size: 42px;
+    line-height: 1;
+}
+
+
+
+
+

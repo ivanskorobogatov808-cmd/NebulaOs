@@ -69,7 +69,90 @@ termIn.addEventListener('keydown', e => {
     } else {
         print(answer);
     }
+})
+
+
+
+
+
+
+
+
+
+document.getElementById('news-icon').addEventListener('click', () => {
+    document.getElementById('news-win').style.display = 'block';
+});
+
+document.getElementById('news-close').addEventListener('click', () => {
+    document.getElementById('news-win').style.display = 'none';
 });
 
 
 
+/* ============ Перетаскивание окна новостей ============ */
+const newsWin = document.getElementById('news-win');
+const newsBar = newsWin.querySelector('div:first-child');
+
+let newsDragging = false;
+let newsStartX, newsStartY, newsStartLeft, newsStartTop;
+
+newsBar.addEventListener('mousedown', e => {
+    newsDragging = true;
+    newsStartX = e.clientX;
+    newsStartY = e.clientY;
+    newsStartLeft = newsWin.offsetLeft;
+    newsStartTop  = newsWin.offsetTop;
+    e.preventDefault();
+});
+
+document.addEventListener('mousemove', e => {
+    if (!newsDragging) return;
+    newsWin.style.left = (newsStartLeft + e.clientX - newsStartX) + 'px';
+    newsWin.style.top  = (newsStartTop  + e.clientY - newsStartY) + 'px';
+});
+
+document.addEventListener('mouseup', () => {
+    newsDragging = false;
+});
+
+
+
+
+
+
+
+
+/* ============ Заметки ============ */
+document.getElementById('notes-icon').addEventListener('click', () => {
+    document.getElementById('notes-win').style.display = 'block';
+});
+
+document.getElementById('notes-close').addEventListener('click', () => {
+    document.getElementById('notes-win').style.display = 'none';
+});
+
+/* --- перетаскивание --- */
+const notesWin = document.getElementById('notes-win');
+const notesBar = notesWin.querySelector('.notes-bar');
+
+let notesDragging = false;
+let notesStartX, notesStartY, notesStartLeft, notesStartTop;
+
+notesBar.addEventListener('mousedown', e => {
+    notesDragging = true;
+    notesStartX = e.clientX;
+    notesStartY = e.clientY;
+    notesStartLeft = notesWin.offsetLeft;
+    notesStartTop  = notesWin.offsetTop;
+    e.preventDefault();
+});
+
+document.addEventListener('mousemove', e => {
+    if (!notesDragging) return;
+    notesWin.style.left = (notesStartLeft + e.clientX - notesStartX) + 'px';
+    notesWin.style.top  = (notesStartTop  + e.clientY - notesStartY) + 'px';
+});
+
+document.addEventListener('mouseup', () => {
+    notesDragging = false;
+});
