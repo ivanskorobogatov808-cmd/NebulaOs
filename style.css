@@ -270,3 +270,153 @@
 
 
 
+
+
+
+
+#settings-win {
+    position: fixed;
+    top: 80px;
+    left: 160px;
+    width: 700px;
+    height: 500px;
+    background: #000;
+    border: 1px solid #333;
+    border-radius: 10px;
+    z-index: 999;
+}
+#settings-bar {
+    padding: 10px 14px;
+    background: #111;
+    color: #eee;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: move;
+    border-radius: 10px 10px 0 0;
+}
+
+
+
+.settings-tab {
+    text-align: left;
+    padding: 10px 14px;
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 13px;
+    font-family: inherit;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.settings-tab:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+}
+
+.settings-tab.active {
+    background: rgba(108, 140, 255, 0.15);
+    color: #6c8cff;
+}
+
+#settings-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    color: #e8ecff;
+    font-size: 14px;
+}
+
+.settings-section {
+    line-height: 1.6;
+}
+
+
+
+
+
+#settings-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: #111;
+    border-radius: 10px 10px 0 0;
+    color: #eee;
+    cursor: move;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+
+
+
+#settings-sidebar {
+    width: 180px;
+    background: #0a0a0a;
+    border-right: 1px solid #222;
+    padding: 10px 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow-y: auto;
+    flex-shrink: 0;
+    align-self: stretch;   /* ← ЭТА СТРОКА */
+}
+
+
+
+
+
+
+
+#topbar {
+    position: fixed;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    height: 40px;
+    padding: 0 24px;
+
+    background: rgba(20, 26, 46, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    color: #e8ecff;
+    font-size: 13px;
+    z-index: 250;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+#tb-date {
+    color: #8a93b8;
+    font-weight: 400;
+}
+
+.tb-side {
+    width: 200px;            /* ширина распорок — чем больше, тем точнее центр */
+    flex-shrink: 0;
+}
+
+.tb-center {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+#tb-date {
+    color: #8a93b8;
+    font-weight: 400;
+}

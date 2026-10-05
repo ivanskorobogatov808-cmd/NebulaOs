@@ -122,37 +122,103 @@ document.addEventListener('mouseup', () => {
 
 
 
-/* ============ Заметки ============ */
-document.getElementById('notes-icon').addEventListener('click', () => {
-    document.getElementById('notes-win').style.display = 'block';
+
+document.getElementById('settings-btn').addEventListener('click', () => {
+    document.getElementById('settings-win').style.display = 'block';
 });
+/* ============ Перетаскивание окна настроек ============ */
+const settingsWin = document.getElementById('settings-win');
+const settingsBar = document.getElementById('settings-bar');
 
-document.getElementById('notes-close').addEventListener('click', () => {
-    document.getElementById('notes-win').style.display = 'none';
-});
+let settingsDragging = false;
+let settingsStartX, settingsStartY, settingsStartLeft, settingsStartTop;
 
-/* --- перетаскивание --- */
-const notesWin = document.getElementById('notes-win');
-const notesBar = notesWin.querySelector('.notes-bar');
-
-let notesDragging = false;
-let notesStartX, notesStartY, notesStartLeft, notesStartTop;
-
-notesBar.addEventListener('mousedown', e => {
-    notesDragging = true;
-    notesStartX = e.clientX;
-    notesStartY = e.clientY;
-    notesStartLeft = notesWin.offsetLeft;
-    notesStartTop  = notesWin.offsetTop;
+settingsBar.addEventListener('mousedown', e => {
+    settingsDragging = true;
+    settingsStartX = e.clientX;
+    settingsStartY = e.clientY;
+    settingsStartLeft = settingsWin.offsetLeft;
+    settingsStartTop  = settingsWin.offsetTop;
     e.preventDefault();
 });
 
 document.addEventListener('mousemove', e => {
-    if (!notesDragging) return;
-    notesWin.style.left = (notesStartLeft + e.clientX - notesStartX) + 'px';
-    notesWin.style.top  = (notesStartTop  + e.clientY - notesStartY) + 'px';
+    if (!settingsDragging) return;
+    settingsWin.style.left = (settingsStartLeft + e.clientX - settingsStartX) + 'px';
+    settingsWin.style.top  = (settingsStartTop  + e.clientY - settingsStartY) + 'px';
 });
 
 document.addEventListener('mouseup', () => {
-    notesDragging = false;
+    settingsDragging = false;
 });
+document.getElementById('settings-close').addEventListener('click', () => {
+    document.getElementById('settings-win').style.display = 'none';
+});
+
+
+
+
+
+
+
+
+/* ============ Переключение разделов настроек ============ */
+const tabs = document.querySelectorAll('.settings-tab');
+const sections = document.querySelectorAll('.settings-section');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        // убрать active со всех табов
+        tabs.forEach(t => t.classList.remove('active'));
+        // поставить active на текущий
+        tab.classList.add('active');
+
+        // скрыть все секции
+        sections.forEach(s => s.style.display = 'none');
+        // показать нужную
+        const id = 'section-' + tab.dataset.section;
+        document.getElementById(id).style.display = 'block';
+    });
+});
+
+
+document.getElementById('settings-btn').addEventListener('click', () => {
+    document.getElementById('settings-win').style.display = 'block';
+});
+
+document.getElementById('settings-close').addEventListener('click', () => {
+    document.getElementById('settings-win').style.display = 'none';
+});
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============ Верхняя панель ============ */
+function updateClock() {
+    const now = new Date();
+
+    const time = now.toLocaleTimeString('ru-RU', {
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+
+    const date = now.toLocaleDateString('ru-RU', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+
+    document.getElementById('tb-time').textContent = time;
+    document.getElementById('tb-date').textContent = date;
+}
+
+updateClock();
+setInterval(updateClock, 1000);

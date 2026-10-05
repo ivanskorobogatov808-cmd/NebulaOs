@@ -20,14 +20,25 @@
 </div>
 <div id="os-beta0-1" style="display: none">
 
+<div id="topbar">
+        <div class="tb-side"></div>
+        <div class="tb-center">
+            <span id="tb-time"></span>
+            <span id="tb-date"></span>
+        </div>
+    </div>
+
     <aside id="dock">
         <button class="dock-item" id="open-btn">&gt;_</button>
         <button class="dock-item">📁</button>
         <button class="dock-item">🌐</button>
-        <button class="dock-item">⚙</button>
+        <button class="dock-item" id="settings-btn">⚙</button>
         <button class="dock-item" id="power-btn" onclick="closeAbout1()">⏻</button>
     </aside>
 
+
+
+    
     <div class="icon" id="news-icon">
         <div class="icon-img">📰</div>
         <div class="icon-label">Новости</div>
@@ -43,7 +54,7 @@
         </div>
     </div>
 
-    <div id="news-win" style="display: none; position: fixed; top: 100px; left: 200px;
+        <div id="news-win" style="display: none; position: fixed; top: 100px; left: 200px;
          width: 400px; height: 300px; background: #000; color: #fff;
          border-radius: 10px; z-index: 999;">
         <div class="news-bar" style="display: flex; justify-content: space-between;
@@ -55,9 +66,61 @@
         <div style="padding: 16px;">
             Сдесь будут новости NebulaOS<br>
             • 04.10.2026 ❘ Сделана оптимизация
+            • 05.10.2026 ❘ Добавлены настройки, добавлен островок с временем и датой сверху экрана
         </div>
     </div>
+
+    <div id="settings-win" style="display: none; position: fixed; top: 80px; left: 160px;
+     width: 700px; height: 500px; background: #000; color: #fff;
+     border: 1px solid #333; border-radius: 10px; z-index: 999;
+     flex-direction: column;">
+
+    <!-- ШАПКА -->
+    <div id="settings-bar" style="display: flex; justify-content: space-between;
+         padding: 10px 14px; background: #111; border-radius: 10px 10px 0 0;
+         color: #eee; cursor: move; user-select: none;">
+        Настройки
+        <button id="settings-close" style="background: none; border: none;
+                color: #eee; cursor: pointer; font-size: 14px;">✕</button>
+    </div>
+
+    <!-- ТЕЛО: слева sidebar, справа content -->
+    <div id="settings-body" style="display: flex; flex: 1; overflow: hidden;">
+
+        <!-- SIDEBAR -->
+        <div id="settings-sidebar">
+            <button class="settings-tab active" data-section="about">О системе</button>
+            <button class="settings-tab" data-section="wallpapers">Обои</button>
+            <button class="settings-tab" data-section="theme">Тема</button>
+            <button class="settings-tab" data-section="apps">Приложения</button>
+            <button class="settings-tab" data-section="reset">Сброс</button>
+        </div>
+
+        <!-- CONTENT -->
+        <div id="settings-content">
+            <div class="settings-section" id="section-about">
+                Название ОС - NebulaOS(PC)<br>Версия - Beta 0.1 
+            </div>
+            <div class="settings-section" id="section-wallpapers" style="display: none;">
+                Обои — тут будет галерея
+            </div>
+            <div class="settings-section" id="section-theme" style="display: none;">
+                Тема — тут будет выбор
+            </div>
+            <div class="settings-section" id="section-apps" style="display: none;">
+                Приложения — тут будут галочки
+            </div>
+            <div class="settings-section" id="section-reset" style="display: none;">
+                Сброс — тут будет кнопка
+            </div>
+        </div>
+
+    </div>
 </div>
+
+</div>
+</div>
+    
     <script src="commands.js"></script>
     <script src="script.js"></script>
 </body>
